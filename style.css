@@ -1,0 +1,106 @@
+*{
+  /*border: 1px dashed red;*/
+  margin: 0px;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+}
+
+#boiteGlobale{
+  height : 600px;
+  width : 900px;
+  background-image: url("img/bg300.png");
+  background-repeat: repeat;
+}
+
+#boiteBrique{
+  position:relative;
+  height : 200px;
+  top : 50px;
+}
+
+#tube{
+  position: relative;
+  width : 100%;
+  height :20px;
+  top : 350px;
+}
+
+/*******************************************************************************
+******************************* Style du palet *********************************
+*******************************************************************************/
+
+#boitePalet{
+  position: absolute;
+  height : 44px;
+  width : 256px;
+  top: 540px;
+  overflow: hidden;
+}
+
+#palet{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#imgPalet{
+  position: absolute;
+}
+
+#fondVie{
+  position: absolute;
+  top :12px;
+  left : 60px;
+  height : 13px;
+  width : 137px;
+  z-index: 1;
+  background-color: black;
+}
+
+#imgVie{
+  background-color: rgb(50,250,50);
+  height : 100%;
+}
+
+/*******************************************************************************
+***************************** Style des briques ********************************
+*******************************************************************************/
+
+.brique{
+  position: absolute;
+  width: 75px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.metal{
+  background-image: url("img/brique_metal.png");
+}
+
+.cassable{
+  background-image: url("img/brique.png");
+}
+
+.pv1{
+  background-color: blue;
+}
+.pv2{
+  background-color: teal;
+}
+.pv3{
+  background-color: green;
+}
+.pv4{
+  background-color: yellow;
+}
+.pv5{
+  background-color: orange;
+}
+.pv6{
+  background-color: red;
+}
+
+.blink{
+  position: absolute;
+}
