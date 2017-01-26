@@ -29,7 +29,7 @@ var palet = {
 
   //Valeurs de départ.
   vie : 100, // On commence avec une barre de vie complète.
-  vitessePalet : "5px", // en px déplacé à chaque interval.
+  vitessePalet : "4px", // en px déplacé à chaque interval.
   emplacementDepart : "200px", // par rapport à la gauche.
   deplacementGauche : false,
   deplacementDroite : false,
@@ -89,7 +89,9 @@ var palet = {
     if(this.deplacementGauche == false) {
       this.deplacementGauche = window.setInterval(
         function(){
-          this.boitePalet.style.left = (parseFloat(this.boitePalet.style.left)-parseFloat(this.vitessePalet))+"px";
+          if(parseFloat(this.boitePalet.style.left) > 26){
+            this.boitePalet.style.left = (parseFloat(this.boitePalet.style.left)-parseFloat(this.vitessePalet))+"px";
+          }
         }.bind(this),10);
       }
     },
@@ -98,7 +100,9 @@ var palet = {
       if(this.deplacementDroite == false) {
         this.deplacementDroite = window.setInterval(
           function(){
-            this.boitePalet.style.left = (parseFloat(this.boitePalet.style.left)+parseFloat(this.vitessePalet))+"px";
+            if(parseFloat(this.boitePalet.style.left) < 670){
+              this.boitePalet.style.left = (parseFloat(this.boitePalet.style.left)+parseFloat(this.vitessePalet))+"px";
+            }
           }.bind(this),10);
         }
       }

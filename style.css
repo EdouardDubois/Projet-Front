@@ -5,24 +5,34 @@
   image-rendering: -moz-crisp-edges;
 }
 
+body{
+width: 900px;
+height: 600px;
+padding: 26px 26px 0px 26px;
+background-color: #1E1F29;
+background-image: url("img/cadre.png");
+background-repeat: no-repeat;
+}
+
 #boiteGlobale{
-  height : 600px;
-  width : 900px;
+  height: 600px;
+  width: 900px;
   background-image: url("img/bg300.png");
   background-repeat: repeat;
+  padding: 0px;
 }
 
 #boiteBrique{
   position:relative;
-  height : 200px;
-  top : 50px;
+  height: 200px;
+  top: 50px;
 }
 
 #tube{
   position: relative;
-  width : 100%;
-  height :20px;
-  top : 350px;
+  width: 100%;
+  height: 20px;
+  top: 350px;
 }
 
 /*******************************************************************************
@@ -31,9 +41,9 @@
 
 #boitePalet{
   position: absolute;
-  height : 44px;
-  width : 256px;
-  top: 540px;
+  height: 44px;
+  width: 256px;
+  top: 566px;
   overflow: hidden;
 }
 
@@ -50,17 +60,31 @@
 
 #fondVie{
   position: absolute;
-  top :12px;
-  left : 60px;
-  height : 13px;
-  width : 137px;
+  top: 12px;
+  left: 60px;
+  height: 13px;
+  width: 137px;
   z-index: 1;
   background-color: black;
 }
 
 #imgVie{
   background-color: rgb(50,250,50);
-  height : 100%;
+  height: 100%;
+}
+
+/*******************************************************************************
+***************************** Style de la balle ********************************
+*******************************************************************************/
+
+#balle{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 100%;
+  top: 400px;
+  left: 450px;
 }
 
 /*******************************************************************************
