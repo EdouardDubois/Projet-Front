@@ -4,6 +4,7 @@
 
 palet.boitePalet.style.left = palet.emplacementDepart; // positionnement du palet.
 palet.animation(); // lancement de l'animation du palet.
+balle.initierMouvement(); // lancement de l'animation de la balle.
 chargerUneMap(niveau1);
 
 /*******************************************************************************
