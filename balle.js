@@ -16,7 +16,7 @@ var balle = {
   y: 300,
   vx: 0,
   vy: 0,
-  dir:Math.PI,
+  dir:2,
   speed:5,
   div: window.document.querySelector("#balle"),
 
@@ -24,32 +24,35 @@ var balle = {
   *************************** Définition des méthodes **************************
   *****************************************************************************/
 
-  changementTrajectoire : function(nouvelleDir = 0){
-    // this.dir = nouvelleDir;
-    this.dir = (Math.PI)+this.dir;
+  changementTrajectoire : function(horizontal,effet = 0){
+    if (horizontal == true) {
+      this.dir = (Math.PI)-this.dir;
+    } else {
+      this.dir = -(this.dir);
+      console.log(this.dir);
+    }
     this.vx = Math.cos(this.dir)*this.speed;
     this.vy = Math.sin(this.dir)*this.speed;
-
-    // A utiliser au rebond
-    // this.dir = (Math.PI)/2+this.dir;
-
   },
 
-  verifCollision : function(){
-    if (this.x <= 26 || this.x >= 901) {
-      this.changementTrajectoire();
+  verifCollisionMurs : function(){
+    if (this.x <= 26 || this.x >= 900) {
+      this.changementTrajectoire(true);
+    }
+    if (this.y <= 26  || this.y >= 540) {
+      this.changementTrajectoire(false);
     }
   },
 
   initierMouvement : function(){
-    this.changementTrajectoire();
+    this.changementTrajectoire(true);
     this.bouger = window.setInterval(
       function(){
         this.x = this.x + this.vx;
         this.y = this.y + this.vy;
         this.div.style.left = this.x + "px";
         this.div.style.top = this.y + "px";
-        this.verifCollision();
+        this.verifCollisionMurs();
       }.bind(this),10);
     }
   }
