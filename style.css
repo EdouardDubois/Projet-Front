@@ -81,7 +81,7 @@ background-repeat: no-repeat;
   position: absolute;
   width: 26px;
   height: 26px;
-  background-color: white;
+  background-image: url("img/boule-magique.png");
   border-radius: 100%;
 }
 

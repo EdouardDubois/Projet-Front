@@ -74,6 +74,9 @@ var palet = {
       }
       if (this.vie == valeurFinale){
         clearInterval(intervalPalet);
+        if (this.vie == 0) {
+          defaite();
+        }
       }
       this.imgVie.style.width = this.vie + "%";
       this.imgVie.style.backgroundColor = "rgb(" + (250 - (this.vie * 2)) + "," + ((this.vie * 2) + 50) + ",50)";

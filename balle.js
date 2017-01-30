@@ -24,6 +24,7 @@ var balle = {
   x: 300,
   y: 300,
   rayon: 13,
+  couleur: "lightgrey",
   div: window.document.querySelector("#balle"),
 
   /*---------------------- Propriétés pour le mouvement ----------------------*/
@@ -57,6 +58,7 @@ var balle = {
   },
 
   setup: function(){
+    this.div.style.backgroundColor = this.couleur;
     this.changementTrajectoire(true);
     this.bouger = window.setInterval(
       function(){

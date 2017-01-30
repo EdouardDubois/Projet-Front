@@ -49,8 +49,12 @@ window.onkeyup = function(event){
   }
 }
 
-/*----------------------------- Quand on gagne -------------------------------*/
+/*------------------------- Quand on gagne ou perd ---------------------------*/
 
 var victoire = function(){
   console.log("Bravo tu es un winner !");
+}
+
+var defaite = function(){
+  console.log("Tu as perdu espèce de gros naze !")
 }
