@@ -4,7 +4,7 @@
 
 palet.setup(); // lancement de l'animation du palet.
 balle.setup(); // lancement de l'animation de la balle.
-chargerUneMap(niveau1);
+chargerUneMap(niveau0);
 
 /*******************************************************************************
 ********************************* Keybindings **********************************

@@ -1,38 +1,36 @@
 *{
-  /*border: 1px dashed red;*/
   margin: 0px;
   image-rendering: crisp-edges;
   image-rendering: -moz-crisp-edges;
 }
 
 body{
-width: 900px;
-height: 600px;
-padding: 26px 26px 0px 26px;
-background-color: #1E1F29;
-background-image: url("img/cadre.png");
-background-repeat: no-repeat;
+  width: 900px;
+  height: 600px;
+  padding: 26px 26px 0px 26px;
+  background-color: #1E1F29;
+  background-image: url("img/cadre.png");
+  background-repeat: no-repeat;
 }
 
 #boiteGlobale{
-  height: 600px;
+  height: 580px;
   width: 900px;
   background-image: url("img/bg300.png");
   background-repeat: repeat;
   padding: 0px;
 }
 
+#cadreAlt{
+  position: absolute;
+  margin:-26px;
+  opacity: 0;
+}
+
 #boiteBrique{
   position:relative;
   height: 200px;
   top: 50px;
-}
-
-#tube{
-  position: relative;
-  width: 100%;
-  height: 20px;
-  top: 350px;
 }
 
 /*******************************************************************************
@@ -43,7 +41,7 @@ background-repeat: no-repeat;
   position: absolute;
   height: 44px;
   width: 256px;
-  top: 566px;
+  top: 576px;
   overflow: hidden;
 }
 
@@ -69,7 +67,7 @@ background-repeat: no-repeat;
 }
 
 #imgVie{
-  background-color: rgb(50,250,50);
+  background-color: rgb(50,200,150);
   height: 100%;
 }
 
@@ -97,7 +95,7 @@ background-repeat: no-repeat;
 }
 
 .metal{
-  background-image: url("img/brique_metal.png");
+  background-image: url("img/brique_grise.png");
 }
 
 .cassable{
@@ -105,22 +103,22 @@ background-repeat: no-repeat;
 }
 
 .pv1{
-  background-color: blue;
+  background-color: #1a9e71;
 }
 .pv2{
-  background-color: teal;
+  background-color: #336699;
 }
 .pv3{
-  background-color: green;
+  background-color: #333366;
 }
 .pv4{
-  background-color: yellow;
+  background-color: #663366;
 }
 .pv5{
-  background-color: orange;
+  background-color: #54102e;
 }
 .pv6{
-  background-color: red;
+  background-color: #2a0404;
 }
 
 .blink{

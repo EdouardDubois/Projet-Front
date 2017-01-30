@@ -21,10 +21,10 @@ var balle = {
   ************************** Définition des propriétés *************************
   *****************************************************************************/
 
-  x: 300,
-  y: 300,
+  x: 463,
+  y: 555,
   rayon: 13,
-  couleur: "lightgrey",
+  couleur: "#e1c048",
   div: window.document.querySelector("#balle"),
 
   /*---------------------- Propriétés pour le mouvement ----------------------*/
@@ -52,14 +52,27 @@ var balle = {
     if (this.x <= 26 || this.x >= 900) {
       this.changementTrajectoire(true);
     }
-    if (this.y <= 26  || this.y >= 600) {
+    if (this.y <= 26) {
       this.changementTrajectoire(false);
+    }
+    if (this.y >= 580) {
+      palet.changementVie(-15);
+      this.changementTrajectoire(false);
+      var cadreAlt = document.querySelector("#cadreAlt").style;
+      cadreAlt.opacity = 1;
+      disparitionAlt = window.setInterval(function(){
+        if (cadreAlt.opacity > 0) {
+          cadreAlt.opacity = cadreAlt.opacity - 0.05;
+        } else {
+          clearInterval(disparitionAlt);
+        }
+      }.bind(this),80);
     }
   },
 
   setup: function(){
     this.div.style.backgroundColor = this.couleur;
-    this.changementTrajectoire(true);
+    this.changementTrajectoire(false);
     this.bouger = window.setInterval(
       function(){
         this.x = this.x + this.vx;

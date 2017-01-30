@@ -25,7 +25,7 @@ var palet = {
   imgVie: window.document.querySelector("#imgVie"),
 
   vie: 100, // On commence avec une barre de vie complète.
-  x: 200, // par rapport à la gauche.
+  x: 346, // par rapport à la gauche.
   vitessePalet: 4, // en px déplacé à chaque interval.
   deplacementGauche: false,
   deplacementDroite: false,
@@ -79,7 +79,7 @@ var palet = {
         }
       }
       this.imgVie.style.width = this.vie + "%";
-      this.imgVie.style.backgroundColor = "rgb(" + (250 - (this.vie * 2)) + "," + ((this.vie * 2) + 50) + ",50)";
+      this.imgVie.style.backgroundColor = "rgb(" + (250 - (this.vie * 2)) + "," + ((this.vie * 1.5) + 50) + ",150)";
     }.bind(this),20);
   },
 
