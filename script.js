@@ -2,9 +2,8 @@
 ******************************** Initialisation ********************************
 *******************************************************************************/
 
-palet.boitePalet.style.left = palet.emplacementDepart; // positionnement du palet.
-palet.animation(); // lancement de l'animation du palet.
-balle.initierMouvement(); // lancement de l'animation de la balle.
+palet.setup(); // lancement de l'animation du palet.
+balle.setup(); // lancement de l'animation de la balle.
 chargerUneMap(niveau1);
 
 /*******************************************************************************
@@ -48,4 +47,10 @@ window.onkeyup = function(event){
     break;
 
   }
+}
+
+/*----------------------------- Quand on gagne -------------------------------*/
+
+var victoire = function(){
+  console.log("Bravo tu es un winner !");
 }

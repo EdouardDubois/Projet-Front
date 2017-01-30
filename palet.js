@@ -3,18 +3,15 @@ var palet = {
 
   /*-------------------------- Liste des propriétés ----------------------------
 
-  boitePalet
-  imgPalet
-  fondVie
   vie
+  x
   vitessePalet
-  emplacementDepart
   deplacementGauche
   deplacementDroite
 
   ----------------------------- Liste des methodes -----------------------------
 
-  animation
+  setup
   changementVie
   versLaGauche
   versLaDroite
@@ -23,32 +20,32 @@ var palet = {
   ************************** Définition des propriétés *************************
   *****************************************************************************/
 
-  boitePalet : window.document.getElementById("boitePalet"),
-  imgPalet : window.document.getElementById("imgPalet"),
-  imgVie : window.document.getElementById("imgVie"),
+  boitePalet: window.document.querySelector("#boitePalet"),
+  imgPalet: window.document.querySelector("#imgPalet"),
+  imgVie: window.document.querySelector("#imgVie"),
 
-  //Valeurs de départ.
-  vie : 100, // On commence avec une barre de vie complète.
-  vitessePalet : "4px", // en px déplacé à chaque interval.
-  emplacementDepart : "200px", // par rapport à la gauche.
-  deplacementGauche : false,
-  deplacementDroite : false,
+  vie: 100, // On commence avec une barre de vie complète.
+  x: 200, // par rapport à la gauche.
+  vitessePalet: 4, // en px déplacé à chaque interval.
+  deplacementGauche: false,
+  deplacementDroite: false,
 
   /*****************************************************************************
   *************************** Définition des méthodes **************************
   ******************************************************************************
 
   ----------------------------- Animation du Palet -----------------------------
-  Je joue une animation (Interval à 40ms) tous les 2 secondes (Interval à 2s).*/
+  Placer le palet et lancer une animation (Interval à 40ms) tous les 2 secondes (Interval à 2s).*/
 
-  animation : function(){
+  setup: function(){
+    this.boitePalet.style.left = this.x + "px"; // positionnement du palet.
     window.setInterval(function(){
       this.imgPalet.style.top = "0px";
-      var recharge = window.setInterval(function(){
+      var animationPalet = window.setInterval(function(){
         if (parseFloat(this.imgPalet.style.top) > -495) {
           this.imgPalet.style.top = (parseFloat(this.imgPalet.style.top) - 45)+"px";
         } else {
-          clearInterval(recharge);
+          clearInterval(animationPalet);
           this.imgPalet.style.top = "0px";
         }
       },40);
@@ -60,7 +57,7 @@ var palet = {
   Cette fonction sera appelée en cas de changement de vie.
   L'interval sert à effectuer le changement progressivement et créer une animation.*/
 
-  changementVie : function(quantite){
+  changementVie: function(quantite){
     var valeurFinale = parseFloat(this.vie) + quantite;
     if (valeurFinale > 100){
       valeurFinale = 100;
@@ -79,29 +76,31 @@ var palet = {
         clearInterval(intervalPalet);
       }
       this.imgVie.style.width = this.vie + "%";
-      this.imgVie.style.backgroundColor = "rgb(" + (250-(this.vie*2)) + "," + ((this.vie*2)+50) + ",50)";
+      this.imgVie.style.backgroundColor = "rgb(" + (250 - (this.vie * 2)) + "," + ((this.vie * 2) + 50) + ",50)";
     }.bind(this),20);
   },
 
   /*------------------------- Déplacement du Palet ---------------------------*/
 
-  versLaGauche : function(){
+  versLaGauche: function(){
     if(this.deplacementGauche == false) {
       this.deplacementGauche = window.setInterval(
         function(){
-          if(parseFloat(this.boitePalet.style.left) > 26){
-            this.boitePalet.style.left = (parseFloat(this.boitePalet.style.left)-parseFloat(this.vitessePalet))+"px";
+          if(this.x > 26){
+            this.x = this.x-this.vitessePalet;
+            this.boitePalet.style.left = this.x + "px";
           }
         }.bind(this),10);
       }
     },
 
-    versLaDroite : function(){
+    versLaDroite: function(){
       if(this.deplacementDroite == false) {
         this.deplacementDroite = window.setInterval(
           function(){
-            if(parseFloat(this.boitePalet.style.left) < 670){
-              this.boitePalet.style.left = (parseFloat(this.boitePalet.style.left)+parseFloat(this.vitessePalet))+"px";
+            if(this.x < 670){
+              this.x = this.x+this.vitessePalet;
+              this.boitePalet.style.left = this.x + "px";
             }
           }.bind(this),10);
         }

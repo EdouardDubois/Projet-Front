@@ -41,13 +41,10 @@ var UsineABrique =function (colonne,ligne,vie) {
     var nouvelleBrique = document.createElement("div");
     var nouvelleImage = document.createElement("img");
     nouvelleBrique.appendChild(nouvelleImage);
-    document.getElementById("boiteBrique").appendChild(nouvelleBrique);
+    document.querySelector("#boiteBrique").appendChild(nouvelleBrique);
     nouvelleBrique.id = this.id;
     nouvelleImage.className = "blink";
     nouvelleImage.src = "img/blink.png"
-    // nouvelleImage.addEventListener("load",function(){
-    //   console.log("coucou");
-    // });
 
     if (isNaN(this.vie)) {
       nouvelleBrique.className = "brique metal";
@@ -79,7 +76,11 @@ var UsineABrique =function (colonne,ligne,vie) {
   }
 
   this.mourir = function(){
-    document.getElementById("boiteBrique").removeChild(this.div);
+    document.querySelector("#boiteBrique").removeChild(this.div);
+    briquesRestantes--;
+    if (briquesRestantes == 0) {
+      victoire();
+    }
   }
 
   // Quand le bloc est touché il :
