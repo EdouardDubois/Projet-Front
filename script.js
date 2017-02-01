@@ -52,9 +52,11 @@ window.onkeyup = function(event){
 /*------------------------- Quand on gagne ou perd ---------------------------*/
 
 var victoire = function(){
-  console.log("Bravo tu es un winner !");
+  window.document.querySelector("#menu").style.backgroundImage = "url('img/victoire.png')";
+  window.document.querySelector("#menu").style.display = "block";
+
 }
 
 var defaite = function(){
-  console.log("Tu as perdu espèce de gros naze !")
+  window.document.querySelector("#menu").style.display = "block";
 }

@@ -8,7 +8,7 @@ body{
   width: 900px;
   height: 600px;
   padding: 26px 26px 0px 26px;
-  background-color: #1E1F29;
+  background-color: #e0d5ce;
   background-image: url("img/cadre.png");
   background-repeat: no-repeat;
 }
@@ -31,6 +31,17 @@ body{
   position:relative;
   height: 200px;
   top: 50px;
+}
+
+#menu{
+  background-image: url("img/defaite.png");
+  width: 679px;
+  height: 157px;
+  position: absolute;
+  z-index: 10;
+  top: 200px;
+  left: 136px;
+  display: none;
 }
 
 /*******************************************************************************

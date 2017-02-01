@@ -79,7 +79,7 @@ var palet = {
         }
       }
       this.imgVie.style.width = this.vie + "%";
-      this.imgVie.style.backgroundColor = "rgb(" + (250 - (this.vie * 2)) + "," + ((this.vie * 1.5) + 50) + ",150)";
+      this.imgVie.style.backgroundColor = "rgb(" + (200 - (this.vie * 1.5)) + "," + ((this.vie * 1.5) + 50) + ",200)";
     }.bind(this),20);
   },
 

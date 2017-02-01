@@ -55,10 +55,6 @@ var UsineABrique =function (colonne,ligne,vie) {
     nouvelleBrique.style.left = (this.colonne * this.width)+"px";
     nouvelleBrique.style.top = (this.ligne * this.height)+"px";
     this.div = document.getElementById(this.id);
-
-    nouvelleImage.addEventListener("click",function(){
-      this.toucher();
-    }.bind(this));
   }
 
   // Animation quand le bloc est touché appelée par la methode .toucher
@@ -97,11 +93,5 @@ var UsineABrique =function (colonne,ligne,vie) {
         this.mourir();
       }
     }
-  }
-
-  this.initier = function(){
-    this.id.addEventListener("click",function(){
-      this.toucher();
-    });
   }
 }

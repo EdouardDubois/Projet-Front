@@ -16,13 +16,15 @@ var balle = {
 
   changementTrajectoire
   verifCollisionMurs
-  initierMouvement
+  verifCollisionBrique
+  setup
+
   ******************************************************************************
   ************************** Définition des propriétés *************************
   *****************************************************************************/
 
   x: 463,
-  y: 555,
+  y: 540,
   rayon: 13,
   couleur: "#e1c048",
   div: window.document.querySelector("#balle"),
@@ -31,8 +33,15 @@ var balle = {
 
   vx: 0,
   vy: 0,
-  dir:2,
-  speed:5,
+  dir: 2,
+  speed: 5,
+
+  /*--------------------- Propriétés pour les collisions ---------------------*/
+
+  ligne: 0,
+  colonne: 0,
+  lignePre: 0,
+  colonnePre: 0,
 
   /*****************************************************************************
   *************************** Définition des méthodes **************************
@@ -70,9 +79,39 @@ var balle = {
     }
   },
 
+  verifCollisionPalet: function(){
+    if (this.y >= 550 && this.x >= palet.x && this.x <= palet.x + 256) {
+      this.changementTrajectoire(false);
+    }
+  },
+
+  verifCollisionBrique: function(){
+    if (this.ligne != Math.trunc((this.y - 63)/25) || this.colonne != Math.trunc((this.x - 13)/75)) {
+      this.lignePre = this.ligne;
+      this.colonnePre = this.colonne;
+    }
+    this.ligne = Math.trunc((this.y - 63)/25);
+    this.colonne = Math.trunc((this.x - 13)/75);
+    if (this.ligne >= 0 && this.ligne <= 7) {
+
+      if (laMap[this.ligne][this.colonne] != 0) {
+        if(this.ligne == this.lignePre){
+          this.changementTrajectoire(true);
+        } else {
+          this.changementTrajectoire(false);
+        }
+        laMap[this.ligne][this.colonne].toucher();
+        if (laMap[this.ligne][this.colonne].vie <= 0) {
+          laMap[this.ligne][this.colonne] = 0;
+        }
+      }
+    }
+  },
+
   setup: function(){
     this.div.style.backgroundColor = this.couleur;
     this.changementTrajectoire(false);
+
     this.bouger = window.setInterval(
       function(){
         this.x = this.x + this.vx;
@@ -80,6 +119,8 @@ var balle = {
         this.div.style.left = this.x + "px";
         this.div.style.top = this.y + "px";
         this.verifCollisionMurs();
+        this.verifCollisionBrique();
+        this.verifCollisionPalet();
       }.bind(this),10);
     }
   }
