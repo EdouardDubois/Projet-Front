@@ -2,9 +2,7 @@
 ******************************** Initialisation ********************************
 *******************************************************************************/
 
-palet.setup(); // lancement de l'animation du palet.
-balle.setup(); // lancement de l'animation de la balle.
-chargerUneMap(niveau0);
+// chargerUneMap(niveau0);
 
 /*******************************************************************************
 ********************************* Keybindings **********************************
@@ -37,13 +35,17 @@ window.onkeyup = function(event){
   switch (event.keyCode) {
 
     case 37:
-    window.clearInterval(palet.deplacementGauche); // J'arrête le déplacement
-    palet.deplacementGauche = false; // Je reset ma variable pour pouvoir se redéplacer plus tard
+    if (palet.deplacementGauche != "bloque") {
+      window.clearInterval(palet.deplacementGauche); // J'arrête le déplacement
+      palet.deplacementGauche = false; // Je reset ma variable pour pouvoir se redéplacer plus tard
+    }
     break;
 
     case 39:
-    window.clearInterval(palet.deplacementDroite);
-    palet.deplacementDroite = false;
+    if (palet.deplacementGauche != "bloque") {
+      window.clearInterval(palet.deplacementDroite);
+      palet.deplacementDroite = false;
+    }
     break;
 
   }
@@ -54,9 +56,20 @@ window.onkeyup = function(event){
 var victoire = function(){
   window.document.querySelector("#menu").style.backgroundImage = "url('img/victoire.png')";
   window.document.querySelector("#menu").style.display = "block";
-
+  window.clearInterval(balle.bouger);
+  balle.div.style.display = "none";
+  window.clearInterval(palet.deplacementDroite);
+  window.clearInterval(palet.deplacementGauche);
+  palet.deplacementGauche = "bloque"
+  palet.deplacementDroite = "bloque"
 }
 
 var defaite = function(){
   window.document.querySelector("#menu").style.display = "block";
+  window.clearInterval(balle.bouger);
+  balle.div.style.display = "none";
+  window.clearInterval(palet.deplacementDroite);
+  window.clearInterval(palet.deplacementGauche);
+  palet.deplacementGauche = "bloque"
+  palet.deplacementDroite = "bloque"
 }

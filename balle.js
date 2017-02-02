@@ -11,6 +11,7 @@ var balle = {
   vy
   dir
   speed
+  bouger
 
   ----------------------------- Liste des methodes -----------------------------
 
@@ -28,6 +29,7 @@ var balle = {
   rayon: 13,
   couleur: "#e1c048",
   div: window.document.querySelector("#balle"),
+  bouger: false,
 
   /*---------------------- Propriétés pour le mouvement ----------------------*/
 
@@ -109,6 +111,8 @@ var balle = {
   },
 
   setup: function(){
+    this.x = 463;
+    this.y = 540;
     this.div.style.backgroundColor = this.couleur;
     this.changementTrajectoire(false);
 
@@ -122,5 +126,6 @@ var balle = {
         this.verifCollisionBrique();
         this.verifCollisionPalet();
       }.bind(this),10);
+      this.div.style.display = "block";
     }
   }

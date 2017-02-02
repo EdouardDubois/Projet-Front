@@ -4,16 +4,15 @@
   image-rendering: -moz-crisp-edges;
 }
 
-body{
+#leJeu{
   width: 900px;
   height: 600px;
   padding: 26px 26px 0px 26px;
-  background-color: #e0d5ce;
   background-image: url("img/cadre.png");
   background-repeat: no-repeat;
 }
 
-#boiteGlobale{
+#boiteJeu{
   height: 580px;
   width: 900px;
   background-image: url("img/bg300.png");
@@ -53,6 +52,7 @@ body{
   height: 44px;
   width: 256px;
   top: 576px;
+  left: 346px;
   overflow: hidden;
 }
 
@@ -78,7 +78,7 @@ body{
 }
 
 #imgVie{
-  background-color: rgb(50,200,150);
+  background-color: rgb(50,200,200);
   height: 100%;
 }
 
@@ -92,6 +92,7 @@ body{
   height: 26px;
   background-image: url("img/boule-magique.png");
   border-radius: 100%;
+  display: none;
 }
 
 /*******************************************************************************

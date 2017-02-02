@@ -20,7 +20,16 @@ var chargerUneMap = function(mapChargee){
   }
 
   // Reset l'objet laMap
-  laMap = vide;
+  laMap = [
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+    ];
 
   // Reset le compteur de briques restantes
   briquesRestantes = 0;
@@ -36,4 +45,8 @@ var chargerUneMap = function(mapChargee){
       }
     }
   }
+
+  palet.setup(); // lancement de l'animation du palet.
+  balle.setup(); // lancement de l'animation de la balle.
+
 }

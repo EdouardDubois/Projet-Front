@@ -5,36 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_page.css">
+  <link rel="stylesheet" href="style_jeu.css">
 </head>
 <body>
-  <div id="boiteGlobale">
-    <img src="img/cadre_alt.png" id="cadreAlt">
-    <div id="menu"></div>
+  <div id="wrapper">
+    <img id="imgFond"src="img/fond-page.png" alt="fond de de la page">
+  <div id="boiteTitre">
+    <img id="imgTitre" src="img/titre.png" alt="Brique.js">
+  </div>
+  <div id ="leJeu">
+    <div id="boiteJeu">
+      <img src="img/cadre_alt.png" id="cadreAlt">
+      <div id="menu"></div>
 
-    <div id="boiteBrique"></div>
+      <div id="boiteBrique"></div>
 
-    <div id="balle"></div>
+      <div id="balle"></div>
 
-    <div id="boitePalet">
-      <div id="fondVie">
-        <img src="img/vie.png" id="imgVie">
-      </div>
-      <div id="palet">
-        <img src="img/palet.png" id="imgPalet">
+      <div id="boitePalet">
+        <div id="fondVie">
+          <img src="img/vie.png" id="imgVie">
+        </div>
+        <div id="palet">
+          <img src="img/palet.png" id="imgPalet">
+        </div>
       </div>
     </div>
+    <div>
   </div>
 </body>
 
 
-<!--=========================== Appel des objets *===========================-->
-<script type="text/javascript" src="palet.js"></script>
-<script type="text/javascript" src="niveaux.js"></script>
-<script type="text/javascript" src="map.js"></script>
-<script type="text/javascript" src="brique.js"></script>
-<script type="text/javascript" src="balle.js"></script>
-<!--=========================== Execution du jeu *===========================-->
-<script type="text/javascript" src="script.js"></script>
+    <!--=========================== Appel des objets *===========================-->
+    <script type="text/javascript" src="palet.js"></script>
+    <script type="text/javascript" src="niveaux.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="brique.js"></script>
+    <script type="text/javascript" src="balle.js"></script>
+    <!--=========================== Execution du jeu *===========================-->
+    <script type="text/javascript" src="script.js"></script>
 
-</html>
+    </html>

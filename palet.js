@@ -27,8 +27,9 @@ var palet = {
   vie: 100, // On commence avec une barre de vie complète.
   x: 346, // par rapport à la gauche.
   vitessePalet: 4, // en px déplacé à chaque interval.
-  deplacementGauche: false,
-  deplacementDroite: false,
+  deplacementGauche: "bloque",
+  deplacementDroite: "bloque",
+  animation: false,
 
   /*****************************************************************************
   *************************** Définition des méthodes **************************
@@ -38,18 +39,24 @@ var palet = {
   Placer le palet et lancer une animation (Interval à 40ms) tous les 2 secondes (Interval à 2s).*/
 
   setup: function(){
+    this.changementVie(100);
     this.boitePalet.style.left = this.x + "px"; // positionnement du palet.
-    window.setInterval(function(){
-      this.imgPalet.style.top = "0px";
-      var animationPalet = window.setInterval(function(){
-        if (parseFloat(this.imgPalet.style.top) > -495) {
-          this.imgPalet.style.top = (parseFloat(this.imgPalet.style.top) - 45)+"px";
-        } else {
-          clearInterval(animationPalet);
-          this.imgPalet.style.top = "0px";
-        }
-      },40);
-    },2000);
+    this.deplacementGauche = false;
+    this.deplacementDroite = false;
+    if (this.animation == false) {
+      this.animation = true;
+      window.setInterval(function(){
+        this.imgPalet.style.top = "0px";
+        var animationPalet = window.setInterval(function(){
+          if (parseFloat(this.imgPalet.style.top) > -495) {
+            this.imgPalet.style.top = (parseFloat(this.imgPalet.style.top) - 45)+"px";
+          } else {
+            clearInterval(animationPalet);
+            this.imgPalet.style.top = "0px";
+          }
+        },40);
+      },2000);
+    }
   },
 
   /*--------------------------- Changement de vie ------------------------------
