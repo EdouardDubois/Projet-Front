@@ -60,8 +60,18 @@ var victoire = function(){
   balle.div.style.display = "none";
   window.clearInterval(palet.deplacementDroite);
   window.clearInterval(palet.deplacementGauche);
-  palet.deplacementGauche = "bloque"
-  palet.deplacementDroite = "bloque"
+  palet.deplacementGauche = "bloque";
+  palet.deplacementDroite = "bloque";
+  niveauxFinis ++;
+  if (niveauxFinis >= 1) {
+    window.document.querySelector("#leCV").style.backgroundImage = "url('img/cv.png')";
+    window.document.querySelector("#leCV").href = "https://www.linkedin.com/in/edouard-dubois-15548b84";
+  }
+  if (niveauxFinis >= 3) {
+    window.document.querySelector("#github").style.backgroundImage = "url('img/github.png')";
+    window.document.querySelector("#github").href = "https://github.com/EdouardDubois/Projet-Front";
+
+  }
 }
 
 var defaite = function(){
@@ -70,6 +80,6 @@ var defaite = function(){
   balle.div.style.display = "none";
   window.clearInterval(palet.deplacementDroite);
   window.clearInterval(palet.deplacementGauche);
-  palet.deplacementGauche = "bloque"
-  palet.deplacementDroite = "bloque"
+  palet.deplacementGauche = "bloque";
+  palet.deplacementDroite = "bloque";
 }

@@ -13,11 +13,13 @@ var mapActuelle = "aucune";
 
 var briquesRestantes = 0;
 
+var niveauxFinis = 0;
+
 var chargerUneMap = function(mapChargee){
 
   mapActuelle = mapChargee;
 
-  // Reset le DOM
+  // ****************************** Reset le DOM *******************************
   var laBoite = document.querySelector("#boiteBrique");
   while (laBoite.firstChild) {
     laBoite.removeChild(laBoite.firstChild);

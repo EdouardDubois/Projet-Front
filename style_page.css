@@ -13,26 +13,38 @@ body{
 .disclaimer{
   position: absolute;
   left:170px;
-  top: 100px;
+  top: 140px;
   display: none;
   z-index: 4;
 }
 
-#leCV{
+#elementsADebloquer{
   margin: 50px 0px 65px 0px;
 }
 
-#cv{
-  background-image: url("img/cv.png");
+#leCV{
+  background-image: url("img/cv-locked.png");
+}
+
+#leCV:hover{
+  background-image: url("img/cv-locked-hov.png");
 }
 
 #github{
-  background-image: url("img/cv.png");
+  background-image: url("img/github-locked.png");
+}
+
+#github:hover{
+  background-image: url("img/github-locked-hov.png");
 }
 
 .unlockable{
-  position absolute;
+  position: relative;
+  float: left;
   margin: 17px;
+  width: 440px;
+  height: 355px;
+  display:block;
 }
 
 #wrapper{
