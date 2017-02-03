@@ -10,6 +10,31 @@ body{
   z-index:1;
 }
 
+.disclaimer{
+  position: absolute;
+  left:170px;
+  top: 100px;
+  display: none;
+  z-index: 4;
+}
+
+#leCV{
+  margin: 50px 0px 65px 0px;
+}
+
+#cv{
+  background-image: url("img/cv.png");
+}
+
+#github{
+  background-image: url("img/cv.png");
+}
+
+.unlockable{
+  position absolute;
+  margin: 17px;
+}
+
 #wrapper{
 left: calc(50% - 476px);
 position: absolute;

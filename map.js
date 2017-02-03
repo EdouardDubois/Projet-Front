@@ -9,9 +9,13 @@ var laMap = [
   [0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
+var mapActuelle = "aucune";
+
 var briquesRestantes = 0;
 
 var chargerUneMap = function(mapChargee){
+
+  mapActuelle = mapChargee;
 
   // Reset le DOM
   var laBoite = document.querySelector("#boiteBrique");
@@ -21,15 +25,15 @@ var chargerUneMap = function(mapChargee){
 
   // Reset l'objet laMap
   laMap = [
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-    ];
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+  ];
 
   // Reset le compteur de briques restantes
   briquesRestantes = 0;
@@ -46,7 +50,14 @@ var chargerUneMap = function(mapChargee){
     }
   }
 
-  palet.setup(); // lancement de l'animation du palet.
-  balle.setup(); // lancement de l'animation de la balle.
-
+  window.document.querySelector("#but").style.display = "block";
+  window.document.querySelector("#but").addEventListener("click", function(){
+    window.document.querySelector("#but").style.display = "none";
+    window.document.querySelector("#controle").style.display = "block";
+    window.document.querySelector("#controle").addEventListener("click", function(){
+      window.document.querySelector("#controle").style.display = "none";
+      palet.setup(); // lancement de l'animation du palet.
+      balle.setup(); // lancement de l'animation de la balle.
+    });
+  });
 }
