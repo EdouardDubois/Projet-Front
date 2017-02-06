@@ -10,43 +10,6 @@ body{
   z-index:1;
 }
 
-.disclaimer{
-  position: absolute;
-  left:170px;
-  top: 140px;
-  display: none;
-  z-index: 4;
-}
-
-#elementsADebloquer{
-  margin: 50px 0px 65px 0px;
-}
-
-#leCV{
-  background-image: url("img/cv-locked.png");
-}
-
-#leCV:hover{
-  background-image: url("img/cv-locked-hov.png");
-}
-
-#github{
-  background-image: url("img/github-locked.png");
-}
-
-#github:hover{
-  background-image: url("img/github-locked-hov.png");
-}
-
-.unlockable{
-  position: relative;
-  float: left;
-  margin: 17px;
-  width: 440px;
-  height: 355px;
-  display:block;
-}
-
 #wrapper{
 left: calc(50% - 476px);
 position: absolute;
@@ -69,4 +32,83 @@ left: calc(50% - 592px);
   top: 5px;
   position: relative;
   z-index:3;
+}
+
+.disclaimer{
+  position: absolute;
+  left:170px;
+  top: 140px;
+  display: none;
+  z-index: 3;
+}
+
+/*******************************************************************************
+**************************** Selecteur de niveau *******************************
+*******************************************************************************/
+
+#levelSelect{
+  position: absolute;
+}
+
+.selecteur{
+  position: relative;
+  float: left;
+  margin: 100px 17px;
+  width: 264px;
+  height: 200px;
+  display:block;
+  z-index: 5;
+}
+
+#texteBlanc{
+  position: relative;
+  float: left;
+  display:block;
+  left: 152px;
+  z-index: 5;
+}
+
+#niveau1{
+  background-image: url("img/bloc.png");
+}
+
+#niveau2{
+  background-image: url("img/bloc.png");
+}
+
+#niveau3{
+  background-image: url("img/bloc.png");
+}
+
+/*******************************************************************************
+**************************** Éléments à débloquer ******************************
+*******************************************************************************/
+
+#elementsADebloquer{
+  margin: 50px 0px 65px 0px;
+}
+
+.unlockable{
+  position: relative;
+  float: left;
+  margin: 17px;
+  width: 440px;
+  height: 355px;
+  display:block;
+}
+
+#leCV{
+  background-image: url("img/cv-locked.png");
+}
+
+#leCV:hover{
+  background-image: url("img/cv-locked-hov.png");
+}
+
+#github{
+  background-image: url("img/github-locked.png");
+}
+
+#github:hover{
+  background-image: url("img/github-locked-hov.png");
 }

@@ -15,16 +15,19 @@
       <img id="imgTitre" src="img/titre.png" alt="Brique.js">
     </div>
     <div id ="leJeu">
-      <img id="controle" class = "disclaimer" src="img/controle.png" alt="But du jeu">
-      <img id="but" class = "disclaimer" src="img/but.png" alt="But du jeu">
+      <div id="levelSelect">
+        <div id="niveau1" class="selecteur"></div>
+        <div id="niveau2" class="selecteur"></div>
+        <div id="niveau3" class="selecteur"></div>
+        <img id="texteBlanc" src="img/texte-blanc.png" alt="Terminez les niveaux pour débloquer les bonus ci-dessous">
+      </div>
+      <img id="controle" class="disclaimer" src="img/controle.png" alt="But du jeu">
+      <img id="but" class="disclaimer" src="img/but.png" alt="But du jeu">
       <div id="boiteJeu">
         <img src="img/cadre_alt.png" id="cadreAlt">
         <div id="menu"></div>
-
         <div id="boiteBrique"></div>
-
         <div id="balle"></div>
-
         <div id="boitePalet">
           <div id="fondVie">
             <img src="img/vie.png" id="imgVie">
@@ -35,20 +38,20 @@
         </div>
       </div>
     </div>
-      <div id="elementsADebloquer">
-        <a id="leCV" class="unlockable" target="_blank"></a>
-        <a id="github" class="unlockable" target="_blank"></a>
-      </div>
-    </body>
+    <div id="elementsADebloquer">
+      <a id="leCV" class="unlockable" target="_blank"></a>
+      <a id="github" class="unlockable" target="_blank"></a>
+    </div>
+  </body>
 
 
-    <!--=========================== Appel des objets *===========================-->
-    <script type="text/javascript" src="palet.js"></script>
-    <script type="text/javascript" src="niveaux.js"></script>
-    <script type="text/javascript" src="map.js"></script>
-    <script type="text/javascript" src="brique.js"></script>
-    <script type="text/javascript" src="balle.js"></script>
-    <!--=========================== Execution du jeu *===========================-->
-    <script type="text/javascript" src="script.js"></script>
+  <!--=========================== Appel des objets *===========================-->
+  <script type="text/javascript" src="palet.js"></script>
+  <script type="text/javascript" src="niveaux.js"></script>
+  <script type="text/javascript" src="map.js"></script>
+  <script type="text/javascript" src="brique.js"></script>
+  <script type="text/javascript" src="balle.js"></script>
+  <!--=========================== Execution du jeu *===========================-->
+  <script type="text/javascript" src="script.js"></script>
 
-    </html>
+  </html>
