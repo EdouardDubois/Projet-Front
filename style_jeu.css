@@ -55,6 +55,7 @@
   top: 576px;
   left: 346px;
   overflow: hidden;
+  display: none;
 }
 
 #palet{

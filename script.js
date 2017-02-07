@@ -2,26 +2,46 @@
 ******************************** Initialisation ********************************
 *******************************************************************************/
 
-// var startGame = function(){
-window.document.querySelector("#niveau1").addEventListener("click",function(){
-  window.document.querySelector("#levelSelect").style.display = "none";
-  chargerUneMap(niveau1);
-  mapActuelle = "niveau1";
-
+window.document.querySelector("#splashscreen").addEventListener("click",function(){
+  var imgSplash = window.document.querySelector("#imgSplashscreen");
+  imgSplash.style.top = "0px";
+  window.setTimeout(function(){
+    window.document.querySelector("#imgTitre").style.display = "block";
+  },300);
+  var disparition = window.setInterval(function(){
+    if (parseFloat(imgSplash.style.top) > -900) {
+      imgSplash.style.top = (parseFloat(imgSplash.style.top) - 15)+"px";
+    } else {
+      clearInterval(disparition);
+      window.document.querySelector("#splashscreen").style.display = "none";
+    }
+  },10);
+  startGame();
 });
-window.document.querySelector("#niveau2").addEventListener("click",function(){
-  window.document.querySelector("#levelSelect").style.display = "none";
-  chargerUneMap(niveau2);
-  mapActuelle = "niveau2";
 
-});
-window.document.querySelector("#niveau3").addEventListener("click",function(){
-  window.document.querySelector("#levelSelect").style.display = "none";
-  chargerUneMap(niveau3);
-  mapActuelle = "niveau3";
 
-});
-// }
+var startGame = function(){
+
+  window.document.querySelector("#boitePalet").style.display = "block";
+  window.document.querySelector("#niveau1").addEventListener("click",function(){
+    window.document.querySelector("#levelSelect").style.display = "none";
+    chargerUneMap(niveau1);
+    mapActuelle = "niveau1";
+
+  });
+  window.document.querySelector("#niveau2").addEventListener("click",function(){
+    window.document.querySelector("#levelSelect").style.display = "none";
+    chargerUneMap(niveau2);
+    mapActuelle = "niveau2";
+
+  });
+  window.document.querySelector("#niveau3").addEventListener("click",function(){
+    window.document.querySelector("#levelSelect").style.display = "none";
+    chargerUneMap(niveau3);
+    mapActuelle = "niveau3";
+
+  });
+}
 
 /*******************************************************************************
 ********************************* Keybindings **********************************
@@ -75,15 +95,8 @@ window.onkeyup = function(event){
 var victoire = function(){
   window.document.querySelector("#menu").style.backgroundImage = "url('img/victoire.png')";
   window.document.querySelector("#menu").style.display = "block";
-
-  // Ici je clear un interval mais pourtant ça double la vitesse quand je fais plusieurs niveaux à la suite
-  window.clearInterval(balle.bouger);
-  balle.bouger = false;
-  balle.div.style.display = "none";
-  window.clearInterval(palet.deplacementDroite);
-  window.clearInterval(palet.deplacementGauche);
-  palet.deplacementGauche = "bloque";
-  palet.deplacementDroite = "bloque";
+  balle.stop();
+  palet.stop();
 
   niveauxFinis ++;
   if (niveauxFinis >= 1) {
@@ -95,6 +108,7 @@ var victoire = function(){
     window.document.querySelector("#github").href = "https://github.com/EdouardDubois/Projet-Front";
   }
   window.document.querySelector("#menu").addEventListener("click",function(){
+    resetLeNiveau();
     window.document.querySelector("#menu").style.display = "none";
     window.document.querySelector("#levelSelect").style.display = "block";
 
@@ -117,17 +131,10 @@ var victoire = function(){
 var defaite = function(){
   window.document.querySelector("#menu").style.backgroundImage = "url('img/defaite.png')";
   window.document.querySelector("#menu").style.display = "block";
-
-  // Ici je clear un interval mais pourtant ça double la vitesse quand je fais plusieurs niveaux à la suite
-  window.clearInterval(balle.bouger);
-  balle.bouger = false;
-  balle.div.style.display = "none";
-  window.clearInterval(palet.deplacementDroite);
-  window.clearInterval(palet.deplacementGauche);
-  palet.deplacementGauche = "bloque";
-  palet.deplacementDroite = "bloque";
-
+  balle.stop();
+  palet.stop();
   window.document.querySelector("#menu").addEventListener("click",function(){
+    resetLeNiveau();
     window.document.querySelector("#menu").style.display = "none";
     window.document.querySelector("#levelSelect").style.display = "block";
   });

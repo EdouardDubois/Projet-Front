@@ -15,15 +15,11 @@ var briquesRestantes = 0;
 
 var niveauxFinis = 0;
 
-var chargerUneMap = function(mapChargee){
-
-  // ****************************** Reset le DOM *******************************
+var resetLeNiveau = function(){
   var laBoite = document.querySelector("#boiteBrique");
   while (laBoite.firstChild) {
     laBoite.removeChild(laBoite.firstChild);
-  }
-
-  // Reset l'objet laMap
+  };
   laMap = [
     [0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0],
@@ -34,9 +30,10 @@ var chargerUneMap = function(mapChargee){
     [0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0],
   ];
-
-  // Reset le compteur de briques restantes
   briquesRestantes = 0;
+}
+
+var chargerUneMap = function(mapChargee){
 
   for (var y = 0; y < mapChargee.length; y++) {
     for (var x = 0; x < mapChargee[y].length; x++) {

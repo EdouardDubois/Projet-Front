@@ -24,7 +24,6 @@ left: calc(50% - 592px);
 #boiteTitre{
   width: 952px;
   height: 50px;
-  background-color: #e0d5ce;
 }
 
 #imgTitre{
@@ -32,6 +31,7 @@ left: calc(50% - 592px);
   top: 5px;
   position: relative;
   z-index:3;
+  display: none;
 }
 
 .disclaimer{
@@ -40,6 +40,25 @@ left: calc(50% - 592px);
   top: 140px;
   display: none;
   z-index: 3;
+}
+
+/*******************************************************************************
+**************************** Splashscreen Entrée *******************************
+*******************************************************************************/
+
+#splashscreen{
+  height: 580px;
+  width: 900px;
+  padding: 0px;
+  position: absolute;
+  z-index: 8;
+  overflow: hidden;
+
+}
+
+#imgSplashscreen{
+  top: 0px;
+  position: absolute;
 }
 
 /*******************************************************************************

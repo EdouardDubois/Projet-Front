@@ -26,7 +26,7 @@ var palet = {
 
   vie: 100, // On commence avec une barre de vie complète.
   x: 346, // par rapport à la gauche.
-  vitessePalet: 4, // en px déplacé à chaque interval.
+  vitessePalet: 8, // en px déplacé à chaque interval.
   deplacementGauche: "bloque",
   deplacementDroite: "bloque",
   animation: false,
@@ -40,7 +40,8 @@ var palet = {
 
   setup: function(){
     this.changementVie(100);
-    this.boitePalet.style.left = this.x + "px"; // positionnement du palet.
+    this.x = 346;
+    this.boitePalet.style.left = this.x + "px";
     this.deplacementGauche = false;
     this.deplacementDroite = false;
     if (this.animation == false) {
@@ -114,5 +115,11 @@ var palet = {
             }
           }.bind(this),10);
         }
-      }
+      },
+    stop: function(){
+      window.clearInterval(palet.deplacementDroite);
+      window.clearInterval(palet.deplacementGauche);
+      palet.deplacementGauche = "bloque";
+      palet.deplacementDroite = "bloque";
     }
+  }

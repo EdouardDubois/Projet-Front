@@ -29,7 +29,7 @@ var balle = {
   rayon: 13,
   couleur: "#e1c048",
   div: window.document.querySelector("#balle"),
-  bouger: false,
+  bouger: null,
 
   /*---------------------- Propriétés pour le mouvement ----------------------*/
 
@@ -111,11 +111,11 @@ var balle = {
   },
 
   setup: function(){
+    this.stop();
     this.x = 463;
     this.y = 540;
     this.div.style.backgroundColor = this.couleur;
     this.changementTrajectoire(false);
-
     this.bouger = window.setInterval(
       function(){
         this.x = this.x + this.vx;
@@ -127,5 +127,12 @@ var balle = {
         this.verifCollisionPalet();
       }.bind(this),10);
       this.div.style.display = "block";
-    }
+  },
+
+  stop: function(){
+    window.clearInterval(this.bouger);
+    this.bouger = null;
+    this.div.style.display = "none";
+  }
+
   }
