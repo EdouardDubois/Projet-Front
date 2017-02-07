@@ -3,18 +3,24 @@
 *******************************************************************************/
 
 // var startGame = function(){
-  window.document.querySelector("#niveau1").addEventListener("click",function(){
-    window.document.querySelector("#levelSelect").style.display = "none";
-    chargerUneMap(niveauTest);
-  });
-  window.document.querySelector("#niveau2").addEventListener("click",function(){
-    window.document.querySelector("#levelSelect").style.display = "none";
-    chargerUneMap(niveau2);
-  });
-  window.document.querySelector("#niveau3").addEventListener("click",function(){
-    window.document.querySelector("#levelSelect").style.display = "none";
-    chargerUneMap(niveau3);
-  });
+window.document.querySelector("#niveau1").addEventListener("click",function(){
+  window.document.querySelector("#levelSelect").style.display = "none";
+  chargerUneMap(niveau1);
+  mapActuelle = "niveau1";
+
+});
+window.document.querySelector("#niveau2").addEventListener("click",function(){
+  window.document.querySelector("#levelSelect").style.display = "none";
+  chargerUneMap(niveau2);
+  mapActuelle = "niveau2";
+
+});
+window.document.querySelector("#niveau3").addEventListener("click",function(){
+  window.document.querySelector("#levelSelect").style.display = "none";
+  chargerUneMap(niveau3);
+  mapActuelle = "niveau3";
+
+});
 // }
 
 /*******************************************************************************
@@ -69,6 +75,8 @@ window.onkeyup = function(event){
 var victoire = function(){
   window.document.querySelector("#menu").style.backgroundImage = "url('img/victoire.png')";
   window.document.querySelector("#menu").style.display = "block";
+
+  // Ici je clear un interval mais pourtant ça double la vitesse quand je fais plusieurs niveaux à la suite
   window.clearInterval(balle.bouger);
   balle.bouger = false;
   balle.div.style.display = "none";
@@ -76,6 +84,7 @@ var victoire = function(){
   window.clearInterval(palet.deplacementGauche);
   palet.deplacementGauche = "bloque";
   palet.deplacementDroite = "bloque";
+
   niveauxFinis ++;
   if (niveauxFinis >= 1) {
     window.document.querySelector("#leCV").style.backgroundImage = "url('img/cv.png')";
@@ -88,11 +97,28 @@ var victoire = function(){
   window.document.querySelector("#menu").addEventListener("click",function(){
     window.document.querySelector("#menu").style.display = "none";
     window.document.querySelector("#levelSelect").style.display = "block";
+
+    switch (mapActuelle) {
+      case "niveau1":
+      window.document.querySelector("#niveau1").style.backgroundImage = "url('img/niveau1_alt.png')";
+      break;
+      case "niveau2":
+      window.document.querySelector("#niveau2").style.backgroundImage = "url('img/niveau2_alt.png')";
+      break;
+      case "niveau3":
+      window.document.querySelector("#niveau3").style.backgroundImage = "url('img/niveau3_alt.png')";
+      break;
+      default:
+    }
+
   });
 }
 
 var defaite = function(){
+  window.document.querySelector("#menu").style.backgroundImage = "url('img/defaite.png')";
   window.document.querySelector("#menu").style.display = "block";
+
+  // Ici je clear un interval mais pourtant ça double la vitesse quand je fais plusieurs niveaux à la suite
   window.clearInterval(balle.bouger);
   balle.bouger = false;
   balle.div.style.display = "none";
@@ -100,6 +126,7 @@ var defaite = function(){
   window.clearInterval(palet.deplacementGauche);
   palet.deplacementGauche = "bloque";
   palet.deplacementDroite = "bloque";
+
   window.document.querySelector("#menu").addEventListener("click",function(){
     window.document.querySelector("#menu").style.display = "none";
     window.document.querySelector("#levelSelect").style.display = "block";

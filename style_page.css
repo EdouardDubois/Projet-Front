@@ -58,6 +58,7 @@ left: calc(50% - 592px);
   height: 200px;
   display:block;
   z-index: 5;
+  background-repeat: no-repeat;
 }
 
 #texteBlanc{
@@ -69,15 +70,15 @@ left: calc(50% - 592px);
 }
 
 #niveau1{
-  background-image: url("img/bloc.png");
+  background-image: url("img/niveau1.png");
 }
 
 #niveau2{
-  background-image: url("img/bloc.png");
+  background-image: url("img/niveau2.png");
 }
 
 #niveau3{
-  background-image: url("img/bloc.png");
+  background-image: url("img/niveau3.png");
 }
 
 /*******************************************************************************

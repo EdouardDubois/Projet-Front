@@ -9,15 +9,13 @@ var laMap = [
   [0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
-var mapActuelle = "aucune";
+var mapActuelle = "";
 
 var briquesRestantes = 0;
 
 var niveauxFinis = 0;
 
 var chargerUneMap = function(mapChargee){
-
-  mapActuelle = mapChargee;
 
   // ****************************** Reset le DOM *******************************
   var laBoite = document.querySelector("#boiteBrique");
