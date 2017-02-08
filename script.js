@@ -1,16 +1,20 @@
 
-/*---------------------------------- To Do -------------------------------------
-
-Modifier la direction suivant l'impact
-
-Collisions bords palets
+/*--------------------------------- Critical -----------------------------------
 
 Changer le rayon de la balle
 
------------------------------------- v 1.1 -------------------------------------
+------------------------------------ Major -------------------------------------
 
 Niveaux angles métal
+
 Pré-loader les images
+
+------------------------------------ Minor -------------------------------------
+
+Cleaner le code et séparer les fichiers
+
+Commenter le code
+
 */
 
 /*******************************************************************************
@@ -40,7 +44,7 @@ var startGame = function(){
   window.document.querySelector("#boitePalet").style.display = "block";
   window.document.querySelector("#niveau1").addEventListener("click",function(){
     window.document.querySelector("#levelSelect").style.display = "none";
-    chargerUneMap(niveauTest);
+    chargerUneMap(niveau1);
     mapActuelle = "niveau1";
 
   });

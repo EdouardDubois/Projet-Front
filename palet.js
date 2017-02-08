@@ -26,7 +26,7 @@ var palet = {
 
   vie: 100, // On commence avec une barre de vie complète.
   x: 346, // par rapport à la gauche.
-  vitessePalet: 8, // en px déplacé à chaque interval.
+  vitessePalet: 5, // en px déplacé à chaque interval.
   deplacementGauche: "bloque",
   deplacementDroite: "bloque",
   animation: false,

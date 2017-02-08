@@ -44,6 +44,7 @@ var balle = {
   colonne: 0,
   lignePre: 0,
   colonnePre: 0,
+  yPre : 540,
 
   /*****************************************************************************
   *************************** Définition des méthodes **************************
@@ -55,16 +56,22 @@ var balle = {
 
     } else {
 
-      // if (effet > this.div%(Math.PI*2)){
-      //
-      // }
-      // var angle = effet - this.dir;
-      // this.dir = -this.dir;
+      if(effet != 0){
+        var nouvelAngle = effet - this.dir% (2 * Math.PI);
 
-      this.dir = -this.dir;
-      console.log(this.dir);
-      // this.dir = Math.abs(Math.min((effet-this.dir),-0.2));
-      // this.dir = Math.abs(Math.min(Math.max(effet-this.dir,0.2),3));
+        if (nouvelAngle > - 0.8 && nouvelAngle < 1) {
+          nouvelAngle = - 0.8;
+        }
+
+        if (nouvelAngle > Math.PI - 1 && nouvelAngle < Math.PI + 0.8) {
+          nouvelAngle = Math.PI + 0.8;
+        }
+        this.dir = nouvelAngle;
+      } else {
+        this.dir = -this.dir;
+      }
+
+      console.log(this.dir + "Effet : " + effet);
     }
     this.vx = Math.cos(this.dir)*this.speed;
     this.vy = Math.sin(this.dir)*this.speed;
@@ -94,9 +101,15 @@ var balle = {
 
   verifCollisionPalet: function(){
     if (this.y >= 550 && this.x >= palet.x && this.x <= palet.x + 256) {
-      var effet = (this.x - palet.x - 128)/128;
-      this.changementTrajectoire(false,effet);
+      if(this.yPre < 550){
+        var effet = (this.x - palet.x - 128)/128;
+        this.changementTrajectoire(false,effet);
+      } else {
+        this.changementTrajectoire(true);
+      }
     }
+    this.yPre = this.y;
+    console.log(this.yPre);
   },
 
   verifCollisionBrique: function(){
@@ -126,6 +139,7 @@ var balle = {
     this.stop();
     this.x = 463;
     this.y = 540;
+    this.yPre = 540;
     this.div.style.backgroundColor = this.couleur;
     this.changementTrajectoire(false);
     this.bouger = window.setInterval(
@@ -139,12 +153,12 @@ var balle = {
         this.verifCollisionPalet();
       }.bind(this),10);
       this.div.style.display = "block";
-  },
+    },
 
-  stop: function(){
-    window.clearInterval(this.bouger);
-    this.bouger = null;
-    this.div.style.display = "none";
-  }
+    stop: function(){
+      window.clearInterval(this.bouger);
+      this.bouger = null;
+      this.div.style.display = "none";
+    }
 
   }
