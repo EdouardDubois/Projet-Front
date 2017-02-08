@@ -36,7 +36,7 @@ var balle = {
   vx: 0,
   vy: 0,
   dir: 2,
-  speed: 5,
+  speed: 6,
 
   /*--------------------- Propriétés pour les collisions ---------------------*/
 
@@ -52,8 +52,19 @@ var balle = {
   changementTrajectoire: function(horizontal,effet = 0){
     if (horizontal == true) {
       this.dir = (Math.PI)-this.dir;
+
     } else {
-      this.dir = -(this.dir);
+
+      // if (effet > this.div%(Math.PI*2)){
+      //
+      // }
+      // var angle = effet - this.dir;
+      // this.dir = -this.dir;
+
+      this.dir = -this.dir;
+      console.log(this.dir);
+      // this.dir = Math.abs(Math.min((effet-this.dir),-0.2));
+      // this.dir = Math.abs(Math.min(Math.max(effet-this.dir,0.2),3));
     }
     this.vx = Math.cos(this.dir)*this.speed;
     this.vy = Math.sin(this.dir)*this.speed;
@@ -83,7 +94,8 @@ var balle = {
 
   verifCollisionPalet: function(){
     if (this.y >= 550 && this.x >= palet.x && this.x <= palet.x + 256) {
-      this.changementTrajectoire(false);
+      var effet = (this.x - palet.x - 128)/128;
+      this.changementTrajectoire(false,effet);
     }
   },
 

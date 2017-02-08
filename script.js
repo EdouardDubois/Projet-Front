@@ -1,3 +1,18 @@
+
+/*---------------------------------- To Do -------------------------------------
+
+Modifier la direction suivant l'impact
+
+Collisions bords palets
+
+Changer le rayon de la balle
+
+------------------------------------ v 1.1 -------------------------------------
+
+Niveaux angles métal
+Pré-loader les images
+*/
+
 /*******************************************************************************
 ******************************** Initialisation ********************************
 *******************************************************************************/
@@ -10,7 +25,7 @@ window.document.querySelector("#splashscreen").addEventListener("click",function
   },300);
   var disparition = window.setInterval(function(){
     if (parseFloat(imgSplash.style.top) > -900) {
-      imgSplash.style.top = (parseFloat(imgSplash.style.top) - 15)+"px";
+      imgSplash.style.top = (parseFloat(imgSplash.style.top) - 25)+"px";
     } else {
       clearInterval(disparition);
       window.document.querySelector("#splashscreen").style.display = "none";
@@ -25,7 +40,7 @@ var startGame = function(){
   window.document.querySelector("#boitePalet").style.display = "block";
   window.document.querySelector("#niveau1").addEventListener("click",function(){
     window.document.querySelector("#levelSelect").style.display = "none";
-    chargerUneMap(niveau1);
+    chargerUneMap(niveauTest);
     mapActuelle = "niveau1";
 
   });
@@ -93,10 +108,6 @@ window.onkeyup = function(event){
 /*------------------------- Quand on gagne ou perd ---------------------------*/
 
 var victoire = function(){
-  window.document.querySelector("#menu").style.backgroundImage = "url('img/victoire.png')";
-  window.document.querySelector("#menu").style.display = "block";
-  balle.stop();
-  palet.stop();
 
   niveauxFinis ++;
   if (niveauxFinis >= 1) {
@@ -107,35 +118,35 @@ var victoire = function(){
     window.document.querySelector("#github").style.backgroundImage = "url('img/github.png')";
     window.document.querySelector("#github").href = "https://github.com/EdouardDubois/Projet-Front";
   }
-  window.document.querySelector("#menu").addEventListener("click",function(){
-    resetLeNiveau();
-    window.document.querySelector("#menu").style.display = "none";
-    window.document.querySelector("#levelSelect").style.display = "block";
 
-    switch (mapActuelle) {
-      case "niveau1":
-      window.document.querySelector("#niveau1").style.backgroundImage = "url('img/niveau1_alt.png')";
-      break;
-      case "niveau2":
-      window.document.querySelector("#niveau2").style.backgroundImage = "url('img/niveau2_alt.png')";
-      break;
-      case "niveau3":
-      window.document.querySelector("#niveau3").style.backgroundImage = "url('img/niveau3_alt.png')";
-      break;
-      default:
-    }
-
-  });
+  switch (mapActuelle) {
+    case "niveau1":
+    window.document.querySelector("#niveau1").style.backgroundImage = "url('img/niveau1_alt.png')";
+    break;
+    case "niveau2":
+    window.document.querySelector("#niveau2").style.backgroundImage = "url('img/niveau2_alt.png')";
+    break;
+    case "niveau3":
+    window.document.querySelector("#niveau3").style.backgroundImage = "url('img/niveau3_alt.png')";
+    break;
+    default:
+  }
+  window.document.querySelector("#ecranFin").style.backgroundImage = "url('img/victoire.png')";
+  finir();
 }
 
 var defaite = function(){
-  window.document.querySelector("#menu").style.backgroundImage = "url('img/defaite.png')";
-  window.document.querySelector("#menu").style.display = "block";
+  window.document.querySelector("#ecranFin").style.backgroundImage = "url('img/defaite.png')";
+  finir();
+}
+
+var finir = function(){
+  window.document.querySelector("#ecranFin").style.display = "block";
   balle.stop();
   palet.stop();
-  window.document.querySelector("#menu").addEventListener("click",function(){
+  window.document.querySelector("#ecranFin").addEventListener("click",function(){
     resetLeNiveau();
-    window.document.querySelector("#menu").style.display = "none";
+    window.document.querySelector("#ecranFin").style.display = "none";
     window.document.querySelector("#levelSelect").style.display = "block";
   });
 }
